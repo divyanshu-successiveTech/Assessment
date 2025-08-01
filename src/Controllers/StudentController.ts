@@ -32,7 +32,7 @@ class StudentController{
 
     async updateById(req:Request,res:Response,next:NextFunction){
         
-        const value = await student.findByIdAndUpdate(req.params.id,{name:"ABC"},{new:true});
+        const value = await student.findByIdAndUpdate(req.params.id,{name:"DEF"},{new:true});
 
         try{
 
@@ -51,7 +51,7 @@ class StudentController{
     }
 
     async DeleteById(req:Request,res:Response,next:NextFunction){
-        const value = await student.findByIdAndDelete(req.params);
+        const value = await student.findByIdAndDelete(req.params.id);
 
         try{
 
