@@ -1,13 +1,11 @@
 import { NextFunction,Request,Response } from "express";
-import Joi from "joi";
+import Joi, { string } from "joi";
 
-const studentDetails = Joi.object({
-    name:Joi.string().required(),
-  age: Joi.number().required(),
-  grade: Joi.string().required(),
-  email: Joi.string().required(),
-  createdAt: Joi.date().required()
 
+
+const register = Joi.object({
+    username:Joi.string().required(),
+    password:Joi.string().required()
 })
 
 
@@ -17,13 +15,13 @@ export const addingUnsecureStudent=(req:Request,res:Response,next:NextFunction)=
     
     
 
-    const {error,value} = studentDetails.validate(req.body);
+    const {error,value} = register.validate(req.body);
 
     if(error){
         res.send("Error")
     }
 
-    req.body.validatedStudent = value;
+    req.body.validatedUser = value;
     next();
 
     

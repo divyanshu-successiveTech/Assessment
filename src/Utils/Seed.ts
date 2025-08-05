@@ -1,5 +1,7 @@
-import {faker} from "@faker-js/faker";
+import mongoose from "mongoose"; 
 const student = require("../Models/studentSchema")
+mongoose.connect("mongodb://localhost:27017/TrialDB");
+
 
 
 let arr = [];
